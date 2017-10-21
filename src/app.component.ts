@@ -6,11 +6,11 @@ import {Component,OnInit} from '@angular/core';
 //Hello World
 @Component({
     selector: 'pokemon-app',
-    template: '<h1>Pokémons<\h1>',
+    templateUrl: './src/app.template.html',
 })
 
 export class AppComponent implements OnInit{
-    private pokemons: Pokemon[]=null;
+    pokemons: Pokemon[]=null;
     
     ngOnInit() {
         this.pokemons = POKEMONS;
