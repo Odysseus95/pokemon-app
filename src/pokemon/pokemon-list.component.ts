@@ -2,23 +2,24 @@ import {Pokemon} from './Pokemon';
 import {POKEMONS} from './mock-pokemon';
 import {Component, OnInit, } from '@angular/core';
 import {Router} from '@angular/router';
+import {PokemonsService} from './pokemons.service';
 
 
 
 @Component({
     selector: 'list-pokemon',
-    templateUrl: './src/pokemon-list.template.html',
+    templateUrl: './src/pokemon/pokemon-list.template.html',
 })
 
 export class PokemonListComponent implements OnInit {
     pokemons: Pokemon[] = null;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private pokemonService: PokemonsService) {
 
     }
 
     ngOnInit() {
-        this.pokemons = POKEMONS;
+        this.pokemons = this.pokemonService.getPokemons();
     }
 
     selectPokemon(pokemon: Pokemon) {
